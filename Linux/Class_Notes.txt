@@ -1,0 +1,1254 @@
+###########################
+Day 2 : 8th June 2025 
+###########################
+
+Fundamentals of Linux Operating System
+
+Overview of Linux
+Linux Architecture
+Linux Distributions
+Basic Linux Commands
+File Permission Management
+User Creation
+Shell Scripts
+SSH and VI Utility
+
+Architecture :
+
+	Operating System -> Interface between the user Applications and Hardware 
+	
+	- Windows 
+	
+	- Mac 
+	
+	- Linux 
+	
+	
+	Linux :
+	
+	 - Is Open-Source
+	 - Is Secured 
+	 - Based on the Command Line Interface  - Linux Cli Commands 
+	 - Core of Linux OS is called as Kernel.
+		- Components of Kernel:
+			- Network
+			- Storage
+			- IPC - Inter-Process Communication
+			- User Management 
+			- Security Management 
+			- Namespace and Control Groups 
+				- It Create an isolated address space to run any process.
+				
+			- CUI - Command User Interface 
+			
+	Linux OS Distributions :
+	
+		- Flavors of Linux OS 
+		
+			- centos/rhel
+			- debian/Ubuntu
+			- Fedora
+			
+			
+		Package Management :
+		
+			- Linux Package Manager - used to install/uninstall/update the Linux packages 
+			
+				
+			- Centos/RHEL			--> yum Package Manager 
+			- debian/Ubuntu			--> apt / apt-get Package Manager
+			- Fedora				--> dnf Package Manager(Latest Version of Fedora Distribution)
+										yum Package Manager(Previous Version of Fedora Distribution)
+										
+		Working with Package Manager :
+			
+			- Only as a root user we can access the package manager by default
+				- Elevate the Access to root user level 
+				
+					$ sudo -i 	==> Elevate the Access to root user level 
+					
+					
+	Your Roles and Responsibilities :::
+
+		Learn Linux on DevOps Perspectives:
+		
+			- To install/uninstall/update the Linux packages 
+			- To Work with DevOps Tools and Packages 
+			- Client/Server Architecture
+				- Access Remote Servers 
+				- User Management
+		
+		As as DevOps Team we focus on :
+
+			- Package Management 
+			- File Management
+			- Access Management 			
+			- User Management 
+			- Remote Server Management
+			- Process Automation - using Shell Scripts 
+			
+	
+	1. Package Management :	
+	
+		- Anys Software/Services --> install/uninstall/update
+					
+		Package Management :
+		
+			- Linux Package Manager - used to install/uninstall/update the Linux packages 
+			
+				
+			- Centos/RHEL			--> yum Package Manager 
+			- debian/Ubuntu			--> apt / apt-get Package Manager
+			- Fedora				--> dnf Package Manager(Latest Version of Fedora Distribution)
+										yum Package Manager(Previous Version of Fedora Distribution)
+										
+		Working with Package Manager :
+			
+			- Only as a root user we can access the package manager by default
+				- Elevate the Access to root user level 
+				
+					$ sudo -i 	==> Elevate the Access to root user level 	
+					
+					
+		To Install any package :
+		
+			- Install Pre-Requisites (if any)
+			- Install the Actual Package 
+			- Post-Installation Activities 
+	
+		Test Environment :
+			- Install Pre-Requisitesserv 
+			- Install MySQL
+			- Start MYSQL Server 
+
+
+
+		Package :	Tool / Service 
+		
+				Install Pre-requisites	
+				Install Actual Tool
+				Post Installation Actions				
+		
+					Eg.: Tomcat :::: 
+					
+						Install Pre-requisites			===> jdk 
+						
+						Install Actual Tool				===> Installed Tomcat 
+						
+						Post Installation Actions		===> Started Tomcat 
+						
+						
+		Install and Manage the Packages :
+	
+			Installation and Management of Linux packages are based on the Linux Distributions
+			
+			- Ubuntu 		==> apt 
+			
+				$ sudo -i 	==> Elevate the Access to root user level 	
+				
+				$ apt update 				# Update the default packages running in Linux Machine.
+				
+				# apt install openjdk11 -y
+				
+				# apt install git -y
+				
+				# apt remove git -y
+				
+				# apt update git -y
+	
+			- Centos/RHEL 		==> yum 
+			
+				$ sudo -i 	==> Elevate the Access to root user level 	
+				
+				$ yum update 
+				
+				# yum install openjdk11
+				
+				# java --version 
+				
+				# which java 
+				
+				# yum install git
+				
+				# which git 
+
+				# git --version 
+				
+				# yum remove git 
+				
+				# yum update git 				
+				
+				
+		Working with Linux Services :
+		
+			- Web Application Servers : Tomcat/nginx/httpd
+			
+			- # apt install nginx 			# Install nginx WAS Package 
+			
+			- # systemctl status nginx 
+		
+			- # systemctl start nginx 
+
+			- # systemctl stop nginx 
+
+			- # systemctl restart nginx 
+
+			- # systemctl enable nginx 		# To Make a start-up service
+
+			- # systemctl disable nginx 	# To disable a start-up service		
+				
+			Package :
+			
+				- Stand-alone Tool			Eg.: git
+				- Service					Eg.: tomcat/nginx/jenkins/docker 	
+
+
+			Remote Server : Linux :
+			
+				--> EC2 Instance Connect Option - thru browser
+				
+				--> SSH Agent :
+						- Putty 		Installed in Windows Machine 
+						- MobaXterm 	Installed in Windows Machine 						
+							https://mobaxterm.mobatek.net/download-home-edition.html - Choose Installer Edition
+						
+				--> Using Terminal :
+						- CMD Prompt 
+						- git bash 
+						- terminal
+						
+				SSH Connection :	Secure SHell Connection 
+				
+					-> Host Name 
+					-> User Name 
+					-> User Authentication 
+					
+					-> Authentication Types :
+					
+						- Password Based Authentication
+						
+						- Key Based Authentication
+							- Public Key 
+							- Private Key 
+							- authorized keys
+							
+						- Token Based Authentication
+						
+						- Passwordless Authentication
+							
+
+	Basic Linux Commands :
+	
+		- clear 
+		
+		
+		- apt install nginx -y 
+		
+		- nginx -version
+
+			- # apt install nginx 			# Install nginx WAS Package 
+			
+			- # systemctl status nginx 
+		
+			- # systemctl start nginx 
+
+			- # systemctl stop nginx 
+
+			- # systemctl restart nginx 
+
+			- # systemctl enable nginx 		# To Make a start-up service
+
+			- # systemctl disable nginx 	# To disable a start-up service	
+			
+		- apt remove git -y 
+		
+		
+
+	2. File Management :
+	
+		Directory/Folder 
+			-> Collection of Files and sub-directories
+		
+		File 
+			-> Collection of Records 
+			
+		
+		pwd 			# Present Working Directory
+		
+		exit 			# Exit/Logoff from current user
+		
+		cd 				# Change Directory 
+		
+		cd ~			# Takes the control to the Home Directory of Current User
+		
+		cd /			# Takes the control to the Root Directory 
+		
+		cd <dir_name>	# Change/Navigate to specific directory 
+		
+		cd ..			# Takes the control back to previous directory
+		
+		ls 				# To list the files/dir
+		
+		ls -a 			# To list all the files/dir - including hidden components
+		
+		
+		Create files/Directories :
+		
+		File Operations :
+		
+			- Open / Read / Delete / Update / Rename / Copy 
+			
+			
+		File Operations :
+		
+			- echo "Message" 				# output statement - To print msg to terminal 
+			
+			- echo "Record1" > file1.txt 	# Create/update a file with record
+		
+			- echo "Record1" >> file1.txt 	# Add New Record to a file	
+			
+			- touch <file_name>				# To Create Empty file
+			
+			- cat <file_name>				# To read the file contents 
+			
+			- File Editors :
+			
+				- vi editor					# To Create/Open a file in interactive mode
+				
+				
+				Eg.: 
+				
+					vi <file_name>			# To Create/Open a file in interactive mode
+					
+					
+					vi sample.txt
+					
+					press :
+					
+						i 					# go to insert mode 	
+
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+						# Enter the file contents
+					
+						esc :wq				# Save and exit from file 
+						
+						esc :q!				# exit from file without saving the changes 
+						
+						
+			- Rename a file/directory
+
+
+						mv <existing_file_name> <New_file_Name>
+						
+						Eg.: 
+						
+						mv sample1.txt dummyfile1.txt
+						
+			- Delete/Remove files :
+			
+						rm <file_name>
+						
+						rm <file1_name> <file2_name>
+						
+						rm *.txt 
+						
+		Create Directories :
+		
+			mkdir <New_Dir_Name> 				# Make Directory 
+			
+			
+		Copy files between the directories :
+		
+			cp <source_file> <Target_path>
+			Eg.: 
+			
+			cp s1.txt /home/ubuntu/dir2
+					
+		Move files between the directories :
+		
+			mv <source_file> <Target_path>
+			Eg.: 
+			
+			mv s2.txt /home/ubuntu/dir2
+
+
+		ll				# Long Listing 
+			
+			
+		
+	3. File Access Management :::
+	
+		File Types :
+		
+			- Script 
+			- Program 
+			- Artifact 
+			
+			ll				# Long Listing 
+
+		ubuntu@ip-172-31-10-212:~/dir1$ ll
+
+		-rw-rw-r-- 1 ubuntu ubuntu    4 Jun  8 06:49 dir2
+		drwxrwxr-x 2 ubuntu ubuntu 4096 Jun  8 06:49 dir3/
+		-rw-rw-r-- 1 ubuntu ubuntu    5 Jun  8 06:43 s1.txt
+		
+		
+		
+		Owner 
+		
+		Group Users 
+		
+		Public Users 
+		
+		----------
+		
+		-									# Denote dir or file (Possible value:  d or - )
+												'd'  Denotes Directory
+												'-'  Denotes File 
+												
+												
+		 ---								# Denote the Owner Level Access 
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access 
+		
+			---								# Denote the Group Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+
+			   ---							# Denote the Public User Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+
+
+		https://chmod-calculator.com/
+	
+		chmod <Access_Level> <File/Directory_Name>
+		
+		chmod 600 s1.txt
+
+		chmod 600 dir1
+
+
+
+
+	4. User Management :::
+	
+		Create Linux User :
+
+		SSH Connection :	Secure SHell Connection 
+		
+			-> Host Name 
+			-> User Name 
+			-> User Authentication 
+
+
+			-> Authentication Types :
+			
+				- Password Based Authentication
+				
+				- Key Based Authentication
+					- Public Key 
+					- Private Key 
+					- authorized keys
+
+
+
+
+		How to Create Linux User ?
+		
+			Username : devopsadmin 
+			
+			Bash Terminal Access :
+			
+			Home Dir :
+			
+			password :
+			
+			ssh-keys :
+
+
+
+		Create Linux User with SSH Keys :::
+		
+			sudo -i 
+			
+			useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+			su - devopsadmin
+
+			ssh-keygen -t ecdsa -b 521										#ubuntu 22.04 or higher version of ubuntu				
+
+			cd .ssh
+			
+			ls ~/.ssh 
+
+			#You should see following two files:
+
+			#id_ecdsa - private key
+			#id_ecdsa.pub - public
+			
+			
+			cat id_ecdsa.pub > authorized_keys			# authorized_keys this file name should be same.
+			
+			authorized_keys :::
+				It is the copy of Public Key.
+				
+				Always the private key will be compared with the authorized_keys
+				
+			chmod 600 /home/devopsadmin/.ssh/*					# Used to Change the Access Mode of Files or Directories
+			
+			chown -R devopsadmin:devopsadmin /opt/tomcat/		# Used to Change the Ownership of Files or Directories
+			
+			
+		Get the List of Linux Users ::::
+			cat /etc/passwd
+		
+		Get the list of Linux User Groups :::: 
+			cat /etc/group
+	
+	
+		Create Password to any Linux User:
+		
+			As a root user ::
+			
+				passwd <user_name>
+				
+		root@ip-172-31-46-175:~# passwd devopsadmin
+		New password:
+		Retype new password:
+		passwd: password updated successfully
+		
+				passwd -d <user_name>		# Delete Linux User Password
+
+
+
+Next ::::
+
+			- Remote Server Management
+			- Process Automation - using Shell Scripts 
+			
+			- GIT
+
+
+###########################
+Day 3 : 14th June 2025 
+###########################
+
+- Remote Server Management
+
+- Process Automation - using Shell Scripts 
+
+- GIT
+
+- Remote Server Management :::
+
+
+	AWS Cloud :
+	
+		VM1	
+		
+		VM2 
+				
+	1. Establish Connection to Remote Server  
+	2. Login to the Remote Server 
+	3. Copy the Files from one server to another server
+		using SCP
+	4. Manage the Remote Server - Install any package/Uninstall/Upgrade 
+	
+	Pre-requisites for Remote Server :::
+	
+		- Launch 2 VMs (VM1-Source & VM2-Target)
+		
+		- Ensure that Port 22 is enabled 
+		
+		- Create User in both the VMs 
+		
+		- Create SSH-Key in one server(VM1)
+				ssh-keygen -t ecdsa -b 521
+				
+		- Use the public_Key as a authorized_keys in the target server(VM2)
+		
+		- Establish SSH Connection & Login to VM2(Target_Machine)
+		
+		- Copy Files from VM1 to VM2(Target_Machine)
+
+
+Client_Machine ::::
+	
+useradd adminuser1 -s /bin/bash -m -d /home/adminuser1
+
+su - adminuser1	
+
+mkdir .ssh 
+
+cd .ssh 
+
+vi authorized_keys
+
+#paste the id_ecdsa.pub of devopsadmin user from Server machine to authorized_keys file in Client Machine 
+
+chmod 600 /home/adminuser1/.ssh/*
+	
+	
+	From Server execute this Command as a devopsadmin user :
+	
+	ssh adminuser1@172.31.12.101
+			
+			
+	- Copy Files from VM1 to VM2(Client_Machine)	
+
+
+		Server Machine ::::		
+			/home/devopsadmin/sourcefile.txt 
+			
+		Client Machine ::::
+			/home/adminuser1/sourcefile.txt
+	
+		#cp  /home/devopsadmin/sourcefile.txt home/devopsadmin/dir1/
+				
+	ssh adminuser1@172.31.12.101
+
+
+	cp /home/devopsadmin/sourcefile1.txt /home/ubuntu
+
+	scp /home/devopsadmin/sourcefile1.txt adminuser1@172.31.12.101:/home/adminuser1
+
+
+	To Add Any User to a Group :
+	
+	usermod -aG <group_name> <user_name>
+	
+	usermod -aG docker devopsadmin
+	
+
+- Process Automation - using Shell Scripts :::
+
+Pre-Requisites to work with any scripts :
+
+
+- Programming Languages 	# Develop business logic 
+	- C/C++/Java/C#.Net/COBOL/RUBY/Python............
+
+- Scripting Languages 		# Process Automation
+	- Groovy/Yaml/Shell/Python/ - Scripting
+	
+	
+	Shell Script are collection of Linux shell Command 
+	
+	Fundamentals of Shell Scripting!
+	
+	Scripting Languages ?
+		- Are used to perform some process automation/validations
+		- Light-weight 
+		- Eg.: java scripts / shell scripts / yaml script / groovy / python 
+			(vs)
+	Progamming Language ?
+		- Are used to create some business applications 
+		- Huge Collection of Programming components
+		- Eg.: Java/.Net Framework/Python/Ruby/Cobol/C
+		
+	
+	Shell Scripting Language :
+	
+		- Shell Scripting is a collection shell commands 
+		- Shell Script file should be saved as *.sh (Extention should be .sh)
+
+
+	vi App_build_Setup.sh
+	
+		sudo apt update -y
+		sudo apt install git -y
+		sudo apt install open-jdk11 -y
+		sudo apt install docker.io -y
+		sudo apt install maven -y
+		
+		
+	save as App_build_Setup.sh
+	
+	
+	Source_Machine :
+	
+		ssh adminuser1@172.31.12.101		
+		SCP 		
+		./App_build_Setup.sh 				
+		exit 
+		
+		
+		ssh adminuser1@172.31.12.102		
+		SCP 		
+		./App_build_Setup.sh 					# Run/Execute the Shell Script				
+		exit 		
+		
+	Target_Server_Group --> Inventory 
+	172.31.12.102
+	172.31.12.101
+	172.31.12.103
+	172.31.12.104
+	
+	Fundamentals of Scripting / Programming Languages :::
+	
+	Automate the process :
+	
+	Any Scripting/Progamming Languages ::::
+	
+	Data - What is Data ?
+	
+	Data 			# Is just a raw content - without any meaning 
+	
+	Information		# The processed data
+	
+	USA ==> 
+	
+	INDIA ==> 
+		
+		INDIA is a Country ==> Information 
+		
+		
+		Tables:
+		
+		Country_Name 
+		
+		INDIA
+		
+
+	Variables :
+	
+		- Identifier 
+		
+		- Variable_Name -> 
+		
+			x = "INDIA"
+			
+	Data Types :
+	
+		- int a = 5 				# "ADFASDFASDf"
+		- string x = "INDIA"
+		- float y = 5.5
+		- boolean z = YES
+		- char b = 'A'
+		
+		In Python:
+		
+		- a = 5 		
+		- x = "HEllo"
+		
+		- Stud_ID = 1001
+		- Stud_ID = 1002
+		- Stud_ID = 1003
+		
+		Arrays :	Group of values of same datatype and name
+					The Array Values are uniquely idendified using index which starts from 0.
+		
+		- Stud_ID[20] = {1001,1002,1003,1004,1005} 
+							0	1	2	 3	  4
+				
+			Stud_ID[0] => 1001	
+			Stud_ID[3] => 1004	
+			
+			accept Stud_ID[0] = 1001
+			accept Stud_ID[1] = 1002	
+			
+	Iterations :
+	
+		for loop 
+		
+			for (i=0;i<20;i++)
+			{
+				accept Stud_ID[i]
+			}
+		
+		while loop 
+		
+		do while loop 
+		
+	
+		Email_ID 	: asdfasdfasdfasdfasdf
+		
+		Stud_Name 	: 123123123123
+		
+		Stud_Mobile#: asdfasdfasdfsdf
+	
+	Conditional Statements :::
+	
+		IF / if then else / if then elseif / 
+		
+		Nest if 
+		
+		Switch Case statement 
+		
+		
+	Operators :
+	
+		Stud_ID --> 1001 
+		
+			if (Stud_ID is Numeric) then 
+				say "Ok"
+				
+		Arithmetic Operators :
+			+,-,*,/,%
+
+		Comparison Operators :
+			
+		 if (a == b) 
+		
+		Assignment Operator 
+		
+			= 
+			
+			a = b 
+			
+	Store :
+	
+	Files :
+	
+		- Sequential 
+		
+		Create File / Open / Read / Write / Delete / Update / Close 
+		
+	DataBase Management :
+	
+	RDBMS : ORACLE / MYSQL 
+ 		
+		- Database 
+			- Table
+				- Rows & Columns
+				
+	
+	Emp_Record Table:
+	
+	Emp_No 		Emp_Name 	Email_ID 			Project_Name 
+	
+	1001		asfasdf		aasdf@asd.com
+	1002		asdfasd		aasdf@asd.com
+	
+	Interact with Remote Servers :
+	
+	ETL :::
+	
+		Extract/Transform/Load 
+	
+	
+
+	Logical Thinking!
+	
+	-> 
+	
+	Design Document :
+	
+		-> Algorithms!
+		
+			- Is a step-by-step process to perform any task 
+			- It can be written in High level - English - User understandable language 
+		
+		-> Pseudo Codes!
+		
+			- Is a step-by-step process to perform any task 
+			- It is writted based on the programming language 
+		
+		-> Actual Program/Script!  C# 
+		
+
+	Write an algorithm to calculate sum of two numbers?
+	
+		-> integers 
+		
+			--> 1 Integer + 1 floot value 
+			
+			--> 
+			
+			num1 = 123123123123123123123123123
+			num2 = 1
+			
+			result = num1 + num2 
+			
+	
+	Algorithm/Program To Print :
+	
+	"Hello"
+			
+	*
+	
+	Output format :
+	
+	*
+	* *
+	* * *
+	* * * *
+	* * * * *
+	
+	Output format :
+	
+	       *
+	      * *
+		 * * *
+		* * * *
+	   * * * * *
+	   
+	
+	Output 
+	
+	
+	    1
+	   2 2
+	  3 3 3 
+	 4 4 4 4
+	5 5 5 5 5
+	
+	Sudoku -
+	
+	
+Write a Shell Script to :
+
+
+	- Setup the Build Server - Java Application Build using Maven	
+
+vi java_build_Setup.sh
+
+#!/bin/bash
+#
+echo "Setup the Build Server - Java Application Build using Maven"
+sudo apt update -y 
+sudo apt install git -y 
+sudo apt install $1 -y
+sudo apt install $2 -y
+
+./java_build_Setup jdk17 maven
+	
+	
+	- Setup the Test Server - Test Java Web Application using Selenium
+	
+#!/bin/bash
+#
+echo "Setup the Test Server - Test Java Web Application using Selenium"
+sudo apt update -y  
+sudo apt install $1 -y
+sudo apt install $2 -y	
+
+./java_Test_Setup jdk17 selenium
+
+	
+	- Setup the Build Server - Java Application Build using Maven and Docker	
+	
+vi java_dockerbuild_Setup.sh
+
+#!/bin/bash
+#
+echo "Setup the Build Server - Java Application Build using Maven"
+sudo apt update -y 
+sudo apt install git -y 
+sudo apt install $1 -y
+sudo apt install $2 -y
+sudo apt install $3 -y
+
+./java_build_Setup jdk11 maven docker.io
+	
+	
+	- Setup the Application Web_Server and Deploy Java Application Artifacts 
+	
+vi java_dockerbuild_Setup.sh
+
+#!/bin/bash
+#
+echo "Setup the Application Web_Server and Deploy Java Application Artifacts"
+sudo apt update -y 
+sudo apt install $1 -y
+sudo apt install $2 -y
+
+./java_build_Setup jdk11 tomcat	
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to print Hello World on terminal using echo command
+
+Source Code:
+
+#!/bin/bash
+#
+echo "Hello World"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to print the calender month by default.
+
+Source Code:
+
+#!/bin/bash
+#	     
+echo "The Month is"
+cal # cal command displays current month by default
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to read user input and perform operations with them.
+
+Source Code:
+
+#!/bin/bash
+echo -n "Enter number 1 : " # -n option supresses newline
+read NUM1 # Read the user input from Standard Input and store in Variable NUM1
+
+echo -n "Enter number 2 : "
+read NUM2
+
+SUM=$(($NUM1 + $NUM2)) # Arithmetic expansion using double parentheses
+echo "The sum is $SUM"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of if condition
+
+#Operators :: 6 Operators
+
+Source Code:
+
+
+#!/bin/bash
+
+NUM1=5 # variabe assignment
+NUM2=2
+
+if [ $NUM1 -gt $NUM2 ] # -gt is to test integer numbers
+then
+    echo "NUM1 > NUM2"
+fi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of if else condition
+
+Source Code:
+
+#!/bin/bash
+
+NUM1=2 # Variabe assignment
+NUM2=5
+
+if [ $NUM1 -lt $NUM2 ]  # -lt is to test integer numbers
+then
+    echo "NUM1 < NUM2"
+else
+    echo "NUM1 > NUM2"
+fi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of else if condition
+
+Source Code:
+
+#!/bin/bash
+#
+
+echo -n "Enter a number: "
+read NUM
+
+if [ $NUM -gt 0 ]
+then
+    echo "$NUM is +ve"
+elif [ $NUM -lt 0 ]
+then
+    echo "$NUM is -ve"
+else
+    echo "$NUM is 0"
+fi
+
+echo "done"
+
+75
+
+-95
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demonstrate case statement
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Enter a character: "
+read CHAR							# A , a ,e,i,o,u l
+
+case $CHAR in
+	a) echo "You entered $CHAR which is a vowel";;  # ;; Terminates each option
+	e) echo "You entered $CHAR which is a vowel";;
+	i) echo "You entered $CHAR which is a vowel";;
+	o) echo "You entered $CHAR which is a vowel";;
+	u) echo "You entered $CHAR which is a vowel";;
+	*) echo "You entered $CHAR which is not a vowel";; # Defaults to everything else
+esac
+
+echo "What if you enter upper case letters!!?, Check the next example"
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demonstrate case statement
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Enter a character: "
+read CHAR
+
+case $CHAR in
+	a | A) # Test for both Lower or Upper case letter
+		# You may write commands in this fashion too!!, means multiline commands
+		echo "You entered $CHAR which is a vowel"
+		;; # Terminates each option
+	e | E) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	i | I) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	o | O) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	u | U) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	*)  # Defaults to everything else
+		echo "You entered $CHAR which is not a vowel"
+		;;
+esac
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to show usage of logical operators
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Enter a NUM: "
+read NUM
+
+# Check whether a number is between 10 and 20 (Using AND -a operator)
+if [ $NUM -ge 10 -a $NUM -le 20 ]
+then
+    echo "$NUM is between 10 and 20"
+else
+    echo "$NUM is NOT between 10 and 20"
+fi
+
+echo -n "Enter another NUM: "
+read NUM
+
+# Check whether a number is between 10 and 20 (Using OR -o operator)
+if [ $NUM -lt 10 -o $NUM -gt 20 ]
+then
+    echo "$NUM is NOT between 10 and 20"
+else
+    echo "$NUM is between 10 and 20"
+fi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to demonstarte for loop [ Bash syntax ]
+
+Source Code:
+
+#!/bin/bash
+#
+
+COUNT=0
+
+for i in 0 1 2 3 4
+do
+    echo "Loop count is ${COUNT}"
+    COUNT=$((COUNT + 1))
+done
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to demonstarte for loop [ C syntax ]
+
+Source Code:
+
+#!/bin/bash
+
+COUNT=0
+
+for ((i = 0; i < 5; i++))
+do
+    echo "Loop count is ${COUNT}"
+    COUNT=$((COUNT + 1))
+done
+
+< 	Less than operator 
+<=  Less than or equal
+
+
+
+Functions/Methods :
+
+	==> Define once and invoke many times as needed.
+	
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show the usage of command line arguments, Here we access positional arguments using $1, $2 …
+
+Source Code:
+
+vi script1.sh
+
+#!/bin/bash
+
+echo "Total no. of argument: $#"
+
+echo "Program name: $0"
+echo "1st argument: $1"
+echo "2nd argument: $2"
+echo "3rd argument: $3"
+sudo apt install $3 -y
+
+./script1.sh Hello Hai Java 
+
+sudo apt install java -y
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show the usage of function
+
+Source Code:
+
+
+print_hello
+
+#!/bin/bash
+
+# Function definition
+function print_hello()
+{
+    	echo "====="
+    	echo "Hello"
+    	echo "====="
+}
+
+# Call the function - print_hello
+print_hello
+
+print_hello
+print_hello
+print_hello
+print_hello
+
+#print_hello
+
+
+vi /etc/profile 
+
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+
+
+export MAVEN_HOME="/usr/share/maven"
+
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin
+
+
+
+Next :::
+
+	Version Control System Using GIT ::::
