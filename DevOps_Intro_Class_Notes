@@ -1,0 +1,421 @@
+DCEIPB | SA2504022 |
+
+Module 2: DevOps Specialist (58 Hours)
+
+Start Date : 7th June 2025 - Timings : 10AM-2PM IST | WeekEnds
+
+Module 2: DevOps Specialist :
+
+###########################
+Day 1 : 7th June 2025 
+###########################
+
+Overview of DevOps :::
+
+- What is DevOps ?
+
+
+	Software Applications :
+	
+		- Desktops Applications
+		
+		- Web Applications 			===> Netflix.com / Amazon.com
+		
+		- Mobiles Applications 
+		
+		- Embedded Applications 
+		
+		
+	SDLC - Software Development Life Cycle 	
+	
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Coding 
+		
+		- Testing 
+		
+		- Implement to Production 
+		
+		- Monitoring/Maintain 
+	
+	
+	Waterfall Model :
+	
+			- It is Linear in approach
+			- It was used for Monolith Application Architecture
+			- It Strictly follows the Top-Down Approach
+			
+			
+			- Desktops Applications : 
+			
+				--> Super-Market Application :
+				
+						- Inventory Management/Database
+						
+						- Application UI
+						
+						- Billing 
+						
+						- Payment 
+						
+							-> Cash Payment
+							-> Card Payment
+							
+							--> ***Online Payment 
+							--> UPI Payment 
+
+
+Core Project : 										12 Months							
+	
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Coding 									6th Month
+		
+		- Testing 
+		
+		- Implement to Production 
+		
+		- Monitoring/Maintain 
+
+
+							--> ***Online Payment 
+							--> UPI Payment 
+							
+Enhancement Project : 												
+	
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Coding 									6th Month
+		
+		- Testing 
+		
+		- Implement to Production 
+		
+		- Monitoring/Maintain 
+		
+		
+
+AGILE Methodologies :::
+
+
+			- Desktops Applications : 
+			
+				--> Super-Market Application :			Functions/Modules 
+				
+						- Inventory Management/Database
+						
+						- Application UI
+						
+						- Billing 
+						
+						- Payment 
+						
+							-> Cash Payment
+							-> Card Payment
+							
+							--> ***Online Payment 
+							--> UPI Payment 
+							
+							
+	
+Iterations : 1 - Inventory Management/Database
+
+
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Coding 
+		
+		- Testing 
+		
+		- Implement to Production with proper approvals 
+		
+		- Monitoring/Maintain 
+		
+
+Iterations : 2 - Application UI
+
+
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Coding 
+		
+		- Testing 
+		
+		- Implement to Production with proper approvals 
+		
+		- Monitoring/Maintain 
+
+
+Iterations : nth - ***Online Payment 
+
+
+		- Requirement Analysis 
+		
+		- Design & Documentation 
+		
+		- Coding 
+		
+		- Testing 
+		
+		- Implement to Production with proper approvals 
+		
+		- Monitoring/Maintain 
+		
+		
+		Using AGILE Methodologies :
+		
+			We can achieve :
+			
+				- Continuous Development
+				
+				- Continuous Interation 
+				
+				- Continuous Testing 
+				
+				- Continuous Delivery 
+					- Is used to perform production release, but it expects manual approvals.
+				
+			We cannot achieve :
+				
+				- Continuous Deployments 
+					- Is used to perform production release without any manual approvals.
+					
+				
+				
+
+DevOps :::
+
+	- DevOps is a Software Development Strategy, which promote collaboration between teams like Development Team and Operations Team to achieve Continuous Development, Continuous Interation, Continuous Testing, Continuous Delivery, Continuous Deployments and Continuous Monitoring in more automated fashion.
+	
+	
+	How to Implement DevOps ???
+	
+	Identify the Teams involved in the process :
+	
+		- DevOps Team 
+			- Infra-structure Management Team ==> Create/Configure 50 Test Servers - Ansible/Terraform/CFT
+			- Application Development Team
+			- Testing Team 
+			- Release Management Team 
+			- Production Support 
+			- Production Monitoring 
+			- IT Security Management Team 
+			
+	Environments :
+	
+		Non-Production Environments									Production Environments
+		
+		
+			- Development Environment
+			
+			- Build Environment
+			
+			- Test Environment
+				- QA 
+				
+				- UAT 						===============>			Production Servers 
+				
+				
+	Application Architecture :
+	
+		- Monolith Application Architecture :
+			
+			- Used in Legacy Applications
+			- These are tightly coupled Application Architecture
+			- Which cannot be splitted in to separate modules/Functions
+		
+		
+		- Micro-Service Based Application Architecture
+		
+			- These are lightly-coupled Applications
+			- Here, each and every function is considered as a Micro-Service.
+			- Each Micro-Service can be independently developed and deployed to production without any manual interversion.
+			- This is used to achieve Continuous Deployment.
+			
+	
+	DevOps Stages :
+	
+			
+		Continuous Development : 
+		
+			- It is the capability of any Application Development Team to Continuously create the code changes.
+			- It is used to improve the Developers' Productivity.
+			
+			Role of Developers ?
+			
+			- Create Source Code 
+			- Application Build ==> Is a process of compiling the Source Code and Creating Artifacts (binaries: *.exec/*.war/*.jar/*.dll)
+			- Unit Testing 
+			- Promote the Changes to Testing Environments
+			- Notify the Testing Team thru Emails.
+			
+			Using DevOps Approach :
+			
+				- Create Source Code 
+				- Save the Source Code in the Source Code Repositories(github/aws-code-commit/azRepos/Bitbucket)
+				
+			
+				Using DevOps Process Automation :
+				
+				- Automate Application Build 
+				- Automate Unit Testing 
+				- Automate Code Promotion
+				- Automate Notifications
+				
+			Tools :
+			
+				- IDEs - Integrated Development Environments - Eclipse/Visual Studio/Visual Studio Code/Pycharm
+				- Git/GitHub
+				- Build/Unit Testing Tools -> Maven/Junit/TestNG
+				
+				
+		
+		Continuous Interation :
+		
+			- It is the capability of any Application Development Team to Continuously integrate their chages for further testing.
+
+
+				Using DevOps Process Automation :
+				
+				- Automate Application Build 
+				- Automate Unit Testing 
+				- Automate Code Promotion
+				- Automate Notifications
+			
+			Tools :
+			
+				- IDEs - Integrated Development Environments - Eclipse/Visual Studio/Visual Studio Code/Pycharm
+				- Git/GitHub
+				- Build/Unit Testing Tools -> Maven/Junit/TestNG
+				- Jenkins/AWS Code Piplines/Azure Pipelines
+
+				
+		Continuous Testing :
+		
+			- It is the capability of Testing Team to Continuously test the changes without impacting other services.
+			- Enables Automated Testing.
+			- Involves Test Data and Test Cases to be created by the Developers and Testing Team.
+			
+			
+			Tools :
+			
+				- JUnit/TestNG/Selenium
+				- Jenkins/AWS Code Piplines/Azure Pipelines
+				
+				
+		Continuous Delivery / Deployments :
+		
+			- Continuous Delivery :			
+				- It expects manual interversion/approvals for production releases 
+				- Expect the production downtime.
+				
+				Eg.:
+				
+					Banking Applications --> NetBanking / Online Transations 
+					
+					4 - 6 Hrs. Prod release downtime.
+					
+						-> Fix the Issue.
+						-> Revert the Changes.
+						
+						
+				
+			- Continuous Deployments :
+				- Is used to perform production release without any manual approvals
+				- This can be achieved only with Micro-Service based Application Architecture
+				- Achieve Production implementation with out any Downtime(ZERO Downtime)			
+				
+				Eg.: 
+				
+					- Netflix/amazon.com 				
+					
+			Tools:
+				- Docker/Kubernetes/Terraform/Ansible
+				- Jenkins/AWS Code Piplines/Azure Pipelines		
+
+			www.amazon.com :
+			
+			Sign_Up			-> Micro-Service1 - Developer1 - Create_Changes - Commit to SCM Repo - Test - Deploy to Prod without any approvals
+			Sign_In			-> Micro-Service2 - Developer2 - Create_Changes - Commit to SCM Repo - Test - Deploy to Prod without any approvals
+			Search 
+			Add to Cart
+			Place Order
+			Payment
+			Confirm
+			track
+				
+	
+		Continuous Monitoring :
+		
+			- It is the process of Monitoring the Production Environments and Applications to ensure High Availability
+			
+			- Infra-structure Monitoring
+			
+				- CPU/Memory Utilization : 
+				
+				- Threshold Limit --> 75% of CPU Utilization
+					- Email/Slack Notifications
+					
+					- Webhooks 
+					
+				- Monitoring Tools :	Prometheus/Grafana/Dynatrace/Splunk/Nagios/AWS CloudWatch/Azure Monitor 
+			
+			- Application Monitoring :
+			
+				- AppDynamics / Datadog 
+	
+	
+	
+		Infra-structure Management ::::
+		
+			IAC Tools --> Infra-structure As Code. --> Declarative Languages - json/yaml
+			
+		
+			- Infra-structure Provision/Creation
+					
+					- Terraform/CFT/ARM
+					- Jenkins 
+			
+			- Infra-structure Configuration 
+			
+					- Ansible/Chef/Puppet
+					- Jenkins 
+					
+				
+	
+	DevOps LifeCycle :
+	
+		CICD Process Automation :
+		
+		Developers ===> Create Source Code --> Build --> Test --> Deploy to Prod_Server --> Monitor
+			|																				|
+			|																				|
+			---------------------------------------------------------------------------------
+			
+			
+		Waterfall - AGILE - DevOps - DevSecOps - SRE - GitOps - AIOPs - MLOPs 
+		
+		
+	DevOps is all about ::
+	
+		- People 
+		
+		- Process/Strategy
+		
+		- Tools
+		
+			- Open-Source DevOps Tools 
+			
+			- Managed Services 
+
+	Detailed DevOps Assessment
