@@ -1,0 +1,387 @@
+######################
+Day 9 : 06th July 2025 
+#######################	
+	
+
+	- Containerization using Docker :
+	
+	- Containerization ::::
+	
+		- It is a process of packaging the application along with its dependencies.
+		
+		
+	- Virtual Machines ::
+	
+		- VMs are called as Hardware Level Virtualization
+		- VMs are created using Hypervisors
+		- VMS are used to run the Operating System
+		- VMs will continue to run even if there is no Active Task/Application
+		- VMs consume more space and time to start any application/service.	
+	
+	
+	- Containers ::
+			
+		- Containers are called as OS Level Virtualization
+		- Containers are created using Container Engine
+		- Containers are used to run the Task/Application. Not Operating System
+		- Containers will immediately go to EXIT State if there is no Active Task/Application
+		- Containers consume less space and time to start any application/service.
+		- Containers runs in its own dedicated/isolated address space
+		
+		- Core of Operating System called Kernel :
+			- Namespace & Control Groups
+	
+		- Containers can be used to reduce the no.of VMs. But we cannot completely eliminate the VMs.
+		
+		
+	
+	
+	Working with Containers ::::
+	
+	
+	1. Infra-structure Perspectives ::
+	
+		Without using Containers :
+		
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Perform Application Builds - Java Applications 
+				Jenkins_SlaveNode2 (VM)	==> Perform Application Builds - .Net Applications			
+				Jenkins_SlaveNode3 (VM)	==> Perform Application Builds - Python Applications 
+				Jenkins_SlaveNode4 (VM)	==> Perform Application Builds - Angular/NodeJS
+				Jenkins_SlaveNode5 (VM)	==> Perform Application Builds - Ruby 	
+			
+		Using Containers :
+
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Build Server 
+					Install Container Engine 
+						C1 				==> Perform Application Builds - Java Applications   ==>
+						C2              ==> Perform Application Builds - .Net Applications	
+						C3              ==> Perform Application Builds - Python Applications 
+						C4              ==> Perform Application Builds - Angular/NodeJS
+						C5              ==> Perform Application Builds - Ruby 	
+						
+		Testing Environments :::
+		
+	
+	2. Developers'/Deployment Perspectives ::
+
+
+		- It is a process of packaging the application along with its dependencies.
+		
+		Dev Environment :
+		
+			- Create Source Code 	- Eclipe-IDE,github
+			
+			- Build, Create Artifacts(mywebapp.war)
+			- Unit Testing 			
+			- jdk17,tomcat8
+
+			- Promote the Changes to Higher Environments 
+			
+		Using Containerization :
+		
+			- Create Source Code 	- Eclipe-IDE,github
+			
+			- Build, Create Artifacts(mywebapp.war)
+			- Unit Testing 			
+
+			- Package the Application along with its dependencies (mywebapp.war,jdk17,tomcat8) ===> mywebapp-Image:v1.0
+			
+			- Publish the Application Image to Container Registry 						
+			
+		
+		QA :	(mywebapp.war)	==> jdk11,tomcat7
+		
+			Run the (mywebapp.war) ==> 
+			
+			Install Container Engine
+			
+			mywebapp-Image:v1.0(mywebapp.war,jdk17,tomcat8) will be pulled in to the QA Server using Container Engine and Create Application Containers
+			
+			
+		UAT :
+
+			Install Container Engine
+			
+			mywebapp-Image:v1.0(mywebapp.war,jdk17,tomcat8) will be pulled in to the QA Server using Container Engine and Create Application Containers
+			
+		
+		PROD :
+		 
+			Install Container Engine
+			
+			mywebapp-Image:v1.0(mywebapp.war,jdk17,tomcat8) will be pulled in to the QA Server using Container Engine and Create Application Containers
+			
+			
+	Terminologies/Architecture Components:
+	
+		- Container Engine :
+			- It is used to Create and Manage Container Images and Containers.
+			- Docker Container Engine 
+		
+			- AWS 	: ECS 
+			- AZure : ACS 
+			- GCP 	: GCE
+			
+		- Container Images :
+		
+			- It is a static file that defines properties of the Containers and its depedencies
+			- It is Non-Executable
+			- It composed of various layer of Instructions which are defined using Dockerfile.
+			
+		- Containers :
+		
+			- Containers are the executable units of Container Images. 
+			- Containers are using the run the Applications defined in the Container Images. 
+			- It is also called a process.
+	
+		- Container Registry :
+		
+			- It is used to save and manage the versions of Container Images.
+			- Dockerhub is Container Registry to be used.
+				https://hub.docker.com/	
+			
+			- AWS 	: ECS,ECR 
+			- Azure : ACS,ACR
+			- GCP 	: GCE,GCR		
+			
+		- Container Repositories :
+		
+			- Container Repositories are the sub-set of Container Registry 
+			
+			
+			- Github 				: Version Control the Source Codes 
+			
+			- Artifactory Libraries : Version Control the Application Artifacts 
+			
+			- Container Registries  : Version Control the Application/Container Images 
+			
+
+	- Create an Account/Login to DockerHub :
+	
+			
+	- Installation of Container Engine :
+	
+		- Install Docker Engine 
+			# https://docs.docker.com/engine/install/
+			
+			- Launch Ubuntu Machine - v22.04  / Use the existing Jenkins SlaveNode to Install Docker Engine
+			
+			- sudo -i 
+			- apt update -y 			
+			- apt install docker.io -y		
+
+	- Working with Docker CLI Commands :
+	
+		- docker --version
+		
+		- docker images					# To get the list of Containers Images present in Local Machine  
+		
+		- docker ps 					# To get the list of only the active/running Containers in Local Machine  
+		
+		- docker ps -a 					# To get the list all active/running/Inactive Containers in Local Machine  
+		
+		
+		
+		- docker pull <image_name>		# It is used to download the latest version of Container Image from Container Registry.
+		
+		Eg.: 
+		
+			docker pull alpine
+			docker pull alpine:latest 
+			
+			docker pull ubuntu
+
+			
+		- docker pull <image_name>:<tag/version>		# It is used to download a specific version of Container Image from Container Registry.
+		
+		Eg.: 
+		
+			docker pull alpine:3.22.0
+			
+			
+		Create Containers using existing Container Images from Container Registry :
+
+			
+		- docker run <Container_Image_Name>		# Create a Container based on the Container Image
+		
+		Eg.: 
+		
+			docker run ubuntu 
+			
+			docker run alpine:latest
+			
+			
+		Three Modes of Container Executions/Run :::
+		
+			- Foreground/Attached Mode ::							# Default Mode of Execution.
+
+				docker run <image_name> 
+				
+				Eg.: 
+				
+					docker run ubuntu sleep 20 		
+			
+			
+			- Background/Detached Mode ::
+			
+				docker run -d <image_name> 
+				
+				Eg.: 
+				
+					docker run -d ubuntu sleep 20 		
+			
+			
+			- Interactive Mode :
+			
+				docker run -it <image_name> bash 
+				
+				Eg.: 		
+		
+				 docker run -it ubuntu bash
+				 
+				 
+		Start Container ::
+		
+			docker start <Container_ID> 			# Used to start the Container.
+
+
+		Login to Running Container :
+		
+			docker exec -it <Container_ID> bash 
+			
+			Eg.:
+			docker exec -it 37b84fd0ecc8 bash
+			
+			exit 									# Log-off 
+			
+		Stop Container ::
+		
+			docker stop <Container_ID> 				# Used to stop the Container.
+			
+			
+		Kill Container ::
+		
+			docker kill <Container_ID> 				# Used to stop the Container.	
+
+
+		Remove Container from Local Machine :
+		
+			docker rm <Container_ID>				# Permanently remove the Container
+			
+		
+		Remove Container Image from Local Machine :
+		
+			docker rmi <Image_ID>					# Permanently remove the Container Image
+		
+			docker rmi -f <Image_ID>				# Force remove the Container Image	
+			
+	
+		Get the list of Active/running Container IDs :
+		
+			docker ps -q
+		
+		
+		Stop/Kill all the Active/running Containers :
+		
+			docker stop $(docker ps -q)
+		
+			docker kill $(docker ps -q)	
+
+
+		Create a Container using name tag :
+		
+			docker run -it --name=dev_env <image_name> bash
+
+
+  - sudo -i 
+  - apt update -y 			
+  - apt install docker.io -y		
+
+   13  apt install docker.io -y
+   14  clear
+   15  docker --version
+   16  docker ps
+   17  clear
+   18  docker images
+   19  docker ps
+   20  docker ps -a
+   21  docker pull centos
+   22  docker pull ubuntu
+   23  docker images
+   24  docker ps
+   25  docker ps -a
+   26  docker run ubuntu
+   27  docker ps
+   28  docker ps -a
+   29  clear
+   30  docker images
+   31  docker run alpine:latest
+   32  docker run ubuntu
+   33  docker ps
+   34  docker ps -a
+   35  docker run ubuntu sleep 20
+   36  docker ps -a
+   37  docker run ubuntu sleep 30
+   38  clear
+   39  docker run -d ubuntu sleep 20
+   40  ls
+   41  docker ps
+   42  docker run -it ubuntu bash
+   43  docker ps
+   44  docker ps -a
+   45  docker start 37b84fd0ecc8
+   46  docker ps
+   47  docker exec it 37b84fd0ecc8 bash
+   48  docker exec -it 37b84fd0ecc8 bash
+   49  docker ps
+   50  docker stop 37b84fd0ecc8
+   51  clear
+   52  docker ps -a
+   53  docker images
+   54  docker rm 8dc5b8b8b023
+   55  docker rm 9042751de39d 4d5a9ba7fcc1
+   56  docker rmi alpine
+   57  docker rmi -f alpine
+   58  docker images
+   59  docker ps
+   60  docker ps -a
+   61  docker start 37b84fd0ecc8
+   62  docker start 9a69778de7d1
+   63  docker ps
+   64  clear
+   65  docker ps
+   66  docker ps -a
+   67  docker ps -q
+   68  clear
+   69  docker ps -a
+   70  docker ps -q
+   71  docker images
+   72  docker run -it --name=dev_env ubuntu bash
+   73  docker ps -a
+   74  docker run -it --name=dev_env ubuntu bash
+   75  exit
+   76  docker ps
+   77  docker stop 37b84fd0ecc8
+   78  history
+
+
+
+Next :::
+
+	Docker Volumes :
+
+	Docker Port Mapping :
+
+	Docker Image Creation :
+
+	Docker Container Orchestration :
+
+		- Docker Compose 
+		
+		- Docker Swarm 	
+		
+		- Kubernetes
