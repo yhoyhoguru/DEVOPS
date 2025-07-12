@@ -1,0 +1,578 @@
+#######################
+Day 6 : 22nd June 2025 
+#######################	
+	
+	Build Orchestration Tool - Jenkins
+	
+	Jenkins :::
+	
+	Continuous Development & Continuous Integration ::::
+	
+		Using DevOps Approach ::
+			Developers :
+			-- Create Application Source Code 
+			-- Commit the Source Code to Source Code Repository like github
+			
+			Using DevOps Process :
+			Automate ::
+
+			- Build the code - Compile and create artifacts 					
+			- Unit Testing 					
+			- Promote the Application to higher testing Environment					
+			- Notify the Testing/Development Team 	
+
+		Tools :::
+		
+			- Eclipse based IDEs - like Eclipse for Java,Pycharm,Intellij, Visual Studio, Visual Studio Code
+			- Source Code Management Tool - like github/AWS Code Commit/Azure Repos 
+			- Jenkins/AzurePipeline/AWS CodeBuild/gitlab-ci/bamboo/github-actions
+			
+			
+	Environment:
+	
+		Dev 
+			Create Source Code!							--> Eclipse/GIT/GITHUB
+			
+		Build 
+			use the code in build enviroment			--> Git 
+			build - compile								--> maven
+			create artitfacts							--> maven
+			unit test 									--> maven,junit
+			promote the artifacts to Test environment   --> Ansible/Deployment plugins/SSH
+		
+		Test 
+			Automated QA Testing 						--> TestNG,Selenium
+			Generate Test Reports 						--> TestNG,Selenium	
+			Validated Test Results 						--> TestNG,Selenium
+			promote the artifacts to Prod environment	--> Ansible/Deployment plugins/SSH 	
+	
+	
+
+	What is Jenkins :::
+	
+		Jenkins is Open-Source Build Orchestration Tool.
+		Used to Automate the End-to-End Application Build and Deployments
+		Using Jenkins we can create CI/CD Pipelines 
+		
+	Jenkins Architecture ::
+	
+		Jenkins is based on Master-Slave Architecture :::
+		
+			Jenkins_Master (VM)				==> Install Jenkins - To Create Jenkins CI/CD Pipeline Jobs/Projects
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+						
+						
+		At Enterprise level :::
+		
+			Java Applications 
+			.Net Applications
+			Python Applications 
+
+
+
+		Scenario1 :	Application Build and Release frequency is very less.
+		
+			Jenkins_Master (VM) 	==> Create Jenkins CI/CD Pipeline Projects & Execute the Build in same Jenkins_Master Node.
+			
+			
+		Scenario2 : Muliple Applications with high Build and Release frequencies.
+			
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Perform Application Builds - Java Applications 
+				Jenkins_SlaveNode2 (VM)	==> Perform Application Builds - .Net Applications			
+				Jenkins_SlaveNode3 (VM)	==> Perform Application Builds - Python Applications 
+				Jenkins_SlaveNode4 (VM)	==> Perform Application Builds - Angular/NodeJS
+				Jenkins_SlaveNode5 (VM)	==> Perform Application Builds - Ruby 
+				
+	CI/CD Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 				
+
+
+
+#######################
+Day 7 : 29th June 2025 
+#######################	
+
+	Build Orchestration using Jenkins!
+	
+	Maintain excel sheet to document any error/issues faced during practise.
+	
+	
+	Working with Jenkins :
+	
+	- Developers' Perspectives :
+	
+		- Developers are just the consumers of Jenkins using Jenkins Tools and Services.
+		- Developers use Jenkins to execute/cancel/view the output - workspace of the Jenkins projects/Pipelines/Jobs.
+		
+	- DevOps Perspectives:
+		
+		- DevOps Team is the owner of Jenkins.		
+		
+		- Roles & Responsibilities of DevOps Team/Resources :
+		
+		- Jenkins Administration :
+		
+			- Installation of Jenkins 
+			- Global System Configurations
+			- Plugins Management 
+			- Tools Management 
+			- User Management
+			- Security Management 
+			- Credential Management
+			- Create Jenkins Projects in Jenkins Master Node
+			- Configuration and Management of Jenkins Master/Slave Architecture
+			- Create CICD Pipeline Projects/Jobs to Automate Application Builds and Deployments
+			- Onboard the Applications to CI/CD Process
+			- Jenkins Server - Periodic Backup for Recovery
+			- Periodic Upgrade of Jenkins Server and the plugins
+			- Trouble-shooting any Jenkins related issues
+			
+	
+	
+	- Installation of Jenkins :::	
+	
+		- Ubuntu Machine - 22.04v AMI
+		- Install Jenkins.
+		
+			- Jenkins Package run as a service using default port 8080
+				- It can be execute using Web-Browser
+				
+				
+		https://www.jenkins.io/doc/book/installing/
+		
+		https://www.jenkins.io/doc/book/installing/linux/
+		
+		- Pre-Requisites
+		- Installation of Jenkins 
+		- Post-Installation Activities 
+		
+		- Upon Installation :
+		
+			Access Jenkins Dashboard.
+			
+	- Global System Configurations :
+	
+	
+	- Plugins Management :
+	
+	
+	- Tools Management :
+	
+	
+	- User Management : Enable User Authentication
+	
+	
+	- Security Management :	Enable User Authorization
+	
+	
+	- Credential Management : 
+	
+	
+	- Create Jenkins Projects in Jenkins Master Node :
+	
+		-> Free-Style Projects 
+		
+				- Completely Manual - configured using Jenkins Dashboard/Web-Interface 
+				
+				
+				Jenkins Variables :
+				
+					- Environment Variables 		# Reserved Jenkins Key-words
+													# meant of each job.
+													
+						"jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+						
+						"${var1}"		# Syntax to use variables 
+						
+						
+					
+					
+					- User-Defined Variables.		# Created by the users to parameterize the Jobs.
+				
+				
+				
+							x = 5 
+				
+		
+		-> Pipeline Projects :
+	
+				- Completely Automated - configured using Jenkins Pipeline Scripts - Groovy
+				- Create Pipeline Project Templates to onboard any application.
+				
+				
+				- Two Types of Jenkins Pipelines :
+				
+					- Scripted Pipelines 
+					
+					- Declarative Pipelines 	# Simplified version of Scripted Pipelines.
+												# Script/Snippet Generator - used to generate scripts.
+	CI/CD Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 
+
+
+		
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout'
+            }
+        }
+        stage('Application_Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'echo "Hello"'
+            }
+        }
+        stage('Deploy to Test Server') {
+            steps {
+                echo 'Perform QA Deployment'
+            }
+        }
+    }
+}
+
+
+Jenkins Pipelines composed of various stages 
+
+Next :::
+
+		- Configuration and Management of Jenkins Master/Slave Architecture
+		- Create CICD Pipeline Projects/Jobs to Automate Application Builds and Deployments
+		- Onboard the Applications to CI/CD Process
+		- Jenkins Server - Periodic Backup for Recovery
+		- Periodic Upgrade of Jenkins Server and the plugins
+		- Trouble-shooting any Jenkins related issues
+
+
+#######################
+Day 8 : 05th July 2025 
+#######################	
+
+	- Configuration and Management of Jenkins Master/Slave Architecture
+	
+	Muliple Applications with high Build and Release frequencies.
+		
+		Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																
+			Jenkins_SlaveNode1 (VM)	==> Perform Application Builds - Java Applications 
+
+	Tools :
+
+		Jenkins_Master (VM)			==> GIT,jdk,Jenkins
+																
+			Jenkins_SlaveNode1 (VM)	==> GIT,jdk,maven
+			
+	Integration of Jenkins_Master & Jenkins_SlaveNode1
+	
+		- Integration using SSH.	
+	
+	- Create CI-CD Pipeline Projects/Jobs to Automate Application Builds and Deployments
+	
+	
+	
+pipeline {
+
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout'
+				git 'https://github.com/SA-WkEnd-DevOps-AI/java-webapp-project.git'
+            }
+        }
+        stage('Application_Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to Test Server') {
+            steps {
+                echo 'Perform QA Deployment'
+            }
+        }
+    }
+}
+
+	
+	
+	- Configuration of Target Servers:
+	
+	Web Application Server : Tomcat/Apache/httpd/Nginx
+	
+	
+	Tomcat Web Application Server :
+	
+	Jenkins_Master 	(VM)				# git,jdk,jenkins 
+		Jenkins_SlaveNode1 (VM)			# git,jdk,maven 
+		
+	Tomcat_Server (VM)					# jdk,tomcat 
+	
+		
+	What is Deployment ???
+	
+	Source Server 																		Target Server 
+	
+		Source_Path&File																	Target_Path
+		
+		
+	Jenkins_SlaveNode1 																	Tomcat_Server 
+	
+		target/*.war																		/opt/tomcat/webapps
+		
+		Upon Deployment :
+		
+		target/*.war							==========>									/opt/tomcat/webapps/*.war
+	
+	
+	
+	
+	Install Publish Over SSH Plugin 
+	
+	Configure Publihs Over SSH Plugin in the Global System Configuration.
+	
+	
+pipeline {
+
+    agent { label 'slave1'}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout'
+				git 'https://github.com/SA-WkEnd-DevOps-AI/java-webapp-project.git'
+            }
+        }
+        stage('Application_Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to Test Server') {
+            steps {
+                script{
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'QA_Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+            }
+        }
+    }
+}	
+
+
+
+sshPublisher(publishers: [sshPublisherDesc(configName: 'QA_Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+
+
+
+
+	- EMail Notifications :
+	
+
+		In Jenkins Pipeline Jobs, Email Notifications can be done as a post build action.
+		
+		
+		Stage{}
+		post{
+			success 
+			failure 
+			abort
+		}
+		
+		gmail Server ==> 
+
+To Setup the Email Notifications, First we need to set the Email Server in the Jenkins System configuration :
+
+
+
+
+Login to Gmail :::
+
+Click Manage Account Settings
+
+@Left side panel - select Security 
+
+MFA/Two-Way Authentication --> mobile#
+
+Search for App password in the same page
+
+Name:
+Mail
+
+What ? window
+Which Appln - email	
+
+App Password = 16 bytes of App Password. # vasd asda sda sd asd ltzr
+
+
+
+How to setup the Email Server in the Jenkins Config:
+
+goto manage jenkins -> system configuration 
+
+goto Email Notification 
+		
+SMTP Server :
+smtp.gmail.com	
+
+SMTP Authentication
+	User Name: Enter Email ID 
+	Password : 16 bytes of App Token (Created in Gmail)
+	
+Choose SSL :
+
+SMTP Port :: 465
+		
+
+	
+pipeline {
+
+    agent { label 'slave1'}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout'
+				git 'https://github.com/SA-WkEnd-DevOps-AI/java-webapp-project.git'
+            }
+            post {
+                failure {
+                  sh "echo 'Send mail on failure'"
+				  
+					mail bcc: 'l@gmail.com', body: 'Jenkins Jobs Status ', cc: 'l@gmail.com', from: '', replyTo: '', subject: 'SCM-Checkout Failed ', to: 'l@gmail.com'
+					
+					mail bcc: 's1.gmail.com', body: '"Jenkins Jobs Status ${BUILD_URL}"', cc: 's1.gmail.com', from: '', replyTo: '', subject: 'SCM-Checkout Failed ', to: 's1.gmail.com'
+                }
+              }
+        }
+        stage('Application_Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to Test Server') {
+            steps {
+                script{
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'QA_Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+            }
+            post {
+                Success {
+                  sh "echo 'Send mail on Success-deployment'"
+				  
+					mail bcc: 'l@gmail.com', body: 'Jenkins Jobs Status ', cc: 'l@gmail.com', from: '', replyTo: '', subject: 'Deployment Successful ', to: 'l@gmail.com'
+					
+					mail bcc: 's1.gmail.com', body: '"Jenkins Jobs Status ${BUILD_URL}"', cc: 's1.gmail.com', from: '', replyTo: '', subject: 'Deployment Successful', to: 's1.gmail.com'
+                }
+                Failure {
+                  sh "echo 'Send mail on deployment Failure'"
+				  
+					mail bcc: 'l@gmail.com', body: 'Jenkins Jobs Status ', cc: 'l@gmail.com', from: '', replyTo: '', subject: 'Deployment Failed ', to: 'l@gmail.com'
+					
+					mail bcc: 's1.gmail.com', body: '"Jenkins Jobs Status ${BUILD_URL}"', cc: 's1.gmail.com', from: '', replyTo: '', subject: 'Deployment Failed', to: 's1.gmail.com'
+                }
+                abort {
+                  sh "echo 'Send mail on deployment Aborted'"
+				  
+					mail bcc: 'l@gmail.com', body: 'Jenkins Jobs Status ', cc: 'l@gmail.com', from: '', replyTo: '', subject: 'Deployment Aborted ', to: 'l@gmail.com'
+					
+					mail bcc: 's1.gmail.com', body: '"Jenkins Jobs Status ${BUILD_URL}"', cc: 's1.gmail.com', from: '', replyTo: '', subject: 'Deployment Aborted', to: 's1.gmail.com'
+                }		
+              }
+        }
+    }
+}	
+
+
+
+	- Build Triggers :::
+	
+		Is used to Automate the Job Scheduling!
+	
+	
+		- Build Periodic :			# https://crontab.guru/
+			
+			- Used to trigger the jenkins jobs irrespective of code change. - It is not meant for CI/CD.
+			- To perform any process automation
+			- The build is sheduled based on the crontab 
+			
+			
+			Eg.: 
+			
+				Environments :
+				
+					Non-Prod Environments												=====>		Prod Environments
+					
+						Should be available only during the business Hours 								Should be available 24/7
+						
+							9AM - 10PM 
+							
+						Jenkins Project1 		Scheduled to run at 8:45AM
+						
+							- Task - Start all the Non-Prod Servers 
+
+						Jenkins Project2 		Scheduled to run at 10:15PM
+						
+							- Task - Stop all the Non-Prod Servers 							
+							
+					
+Next :::
+
+		- GitHub Webhook	
+		
+		- PollSCM 
+
+Docker!
+		
+#######################
+Day 9 : 06th July 2025 
+#######################	
+
+
+
+	- Build Triggers :::
+	
+		Is used to Automate the Job Scheduling!
+		
+
+		- GitHub Webhook :::
+		
+			- Used to trigger the jenkins Job whenever there is any commit happened in the remote repository
+			- github webhook has be configured in the remote repository by using the jenkins URL			
+		
+		http://13.127.14.64:8080/github-webhook/
+		
+		
+		
+		- PollSCM :::
+		
+			- It is used to trigger the build based on the crontab only if there is any changes happened in the source-code repository.
+			
+			
+			Test Cycles :
+			
+				==>  8AM - 12PM - 3PM
+				
+				QA/UAT Testing  
+
